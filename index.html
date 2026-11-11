@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gleamstone Commercial Cleaning</title>
+<meta name="description" content="Gleamstone Commercial Cleaning: after-hours office and medical suite cleaning north of Boston. Written checklists, owner inspections, one point of contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a polished-stone slab hero, then a working checklist "card" pinned beside the pitch; quiet sections below on a granite ground. */
+:root{
+  --ground:#eef1f0; --slab:#ffffff; --ink:#15302c; --ink-soft:#4b625e;
+  --line:#d3dbd9; --accent:#1f6f62; --gleam:#c9a75a; --accent-ink:#ffffff;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0f1716; --slab:#16211f; --ink:#e6eeec; --ink-soft:#9fb3af;
+  --line:#2a3a37; --accent:#5fc0ad; --gleam:#d9bb72; --accent-ink:#0b1513; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0f1716; --slab:#16211f; --ink:#e6eeec; --ink-soft:#9fb3af;
+  --line:#2a3a37; --accent:#5fc0ad; --gleam:#d9bb72; --accent-ink:#0b1513; color-scheme:dark}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+img{max-width:100%}
+body{background:var(--ground);color:var(--ink);font:400 1.0625rem/1.6 var(--body);
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:1080px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.08;letter-spacing:-0.01em}
+p{margin:0}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gleam);outline-offset:3px;border-radius:4px}
+
+/* header */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px}
+.mark{display:flex;align-items:center;gap:10px;font:700 1.15rem var(--display)}
+.mark svg{flex:none}
+.top a.mail{font:500 .85rem var(--mono);color:var(--ink-soft);text-decoration:none;word-break:break-all}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start;padding-block:40px 72px}
+.hero > *{min-width:0}
+.eyebrow{font:500 .78rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4.1rem);margin-top:14px}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%, color-mix(in srgb,var(--gleam) 45%, transparent) 62%)}
+.lede{margin-top:20px;color:var(--ink-soft);max-width:34em;font-size:1.125rem}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:13px 22px;font:600 1rem var(--body);text-decoration:none;cursor:pointer;border:1px solid transparent}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{border-color:var(--line);color:var(--ink);background:transparent}
+.btn:hover{filter:brightness(1.06)}
+.area{margin-top:26px;font:400 .9rem var(--mono);color:var(--ink-soft)}
+
+/* checklist card */
+.sheet{background:var(--slab);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px;box-shadow:0 18px 40px -28px rgba(10,40,35,.45)}
+.sheet-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px dashed var(--line);padding-bottom:12px}
+.sheet-head b{font:700 1.05rem var(--display)}
+.sheet-head span{font:500 .75rem var(--mono);color:var(--ink-soft)}
+.sheet ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:9px}
+.sheet li{display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:start;font-size:.95rem}
+.box{width:16px;height:16px;border:1.5px solid var(--accent);border-radius:4px;margin-top:4px;display:grid;place-items:center}
+.box.on{background:var(--accent)}
+.box.on::after{content:"";width:7px;height:4px;border:2px solid var(--accent-ink);border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px)}
+.zone{font:400 .72rem var(--mono);color:var(--ink-soft);white-space:nowrap;padding-top:3px}
+.sheet-foot{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font:400 .78rem var(--mono);color:var(--ink-soft);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+/* sections */
+section{padding-block:64px;border-top:1px solid var(--line)}
+section h2{font-size:clamp(1.7rem,3.4vw,2.4rem);max-width:20em}
+.sub{margin-top:12px;color:var(--ink-soft);max-width:38em}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px}
+.grid3 > div{min-width:0}
+.grid3 h3{font-size:1.2rem;margin-bottom:8px}
+.grid3 p{color:var(--ink-soft);font-size:.98rem}
+.who{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.who span{border:1px solid var(--line);background:var(--slab);border-radius:999px;padding:8px 16px;font-size:.95rem}
+
+/* frequency table */
+.freq{margin-top:34px;overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.96rem}
+th,td{text-align:left;padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 .75rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+td:first-child{font:700 1.05rem var(--display);white-space:nowrap}
+td .tag{display:inline-block;font:500 .7rem var(--mono);color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:2px}
+
+/* steps */
+.steps{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:s}
+.steps li{counter-increment:s;min-width:0}
+.steps li::before{content:"Step " counter(s);display:block;font:500 .75rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.steps h3{font-size:1.2rem;margin-bottom:8px}
+.steps p{color:var(--ink-soft);font-size:.98rem}
+
+/* contact */
+.contact{background:var(--ink);color:var(--ground);border-radius:18px;padding:44px 36px;margin-block:64px 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+.contact > *{min-width:0}
+.contact h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+.contact p{margin-top:12px;opacity:.82}
+.addr{background:color-mix(in srgb,var(--ground) 10%, transparent);border:1px solid color-mix(in srgb,var(--ground) 25%, transparent);border-radius:12px;padding:18px}
+.addr small{display:block;font:500 .72rem var(--mono);letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.addr code{display:block;font:500 1.02rem var(--mono);margin:8px 0 14px;word-break:break-all;user-select:all}
+.addr .btn{background:var(--gleam);color:#1a1a12;padding:10px 18px;font-size:.92rem}
+.addr .hint{display:block;margin-top:12px;font-size:.85rem;opacity:.75}
+footer{padding-block:20px 40px;font:400 .82rem var(--mono);color:var(--ink-soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:860px){
+  .hero,.contact{grid-template-columns:1fr}
+  .grid3,.steps{grid-template-columns:1fr}
+  .hero{padding-block:20px 56px;gap:36px}
+  .contact{padding:32px 22px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .sheet li{animation:tick .5s ease both}
+  .sheet li:nth-child(2){animation-delay:.05s}.sheet li:nth-child(3){animation-delay:.1s}
+  .sheet li:nth-child(4){animation-delay:.15s}.sheet li:nth-child(5){animation-delay:.2s}
+  .sheet li:nth-child(6){animation-delay:.25s}.sheet li:nth-child(7){animation-delay:.3s}
+  @keyframes tick{from{transform:translateY(4px)}to{transform:none}}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="mark">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M15 2 27 9.5v11L15 28 3 20.5v-11Z" fill="var(--accent)"/><path d="M15 2 27 9.5 15 15 3 9.5Z" fill="var(--gleam)" opacity=".85"/><path d="M15 15v13" stroke="var(--slab)" stroke-width="1.2" opacity=".5"/></svg>
+      Gleamstone
+    </div>
+    <a class="mail" href="mailto:bobby@gleamstonecleaning.com">bobby@gleamstonecleaning.com</a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Commercial cleaning · North of Boston</p>
+        <h1>Your office, cleaned <em>after you leave</em>. Done right every night.</h1>
+        <p class="lede">Gleamstone cleans offices, medical and dental suites, and small commercial buildings. You get a written checklist for your space, regular owner inspections, and one owner who answers your emails.</p>
+        <div class="cta">
+          <a class="btn primary" href="#quote">Get a free walkthrough quote</a>
+          <a class="btn ghost" href="#services">See what's included</a>
+        </div>
+        <p class="area">Woburn · Burlington · Winchester · Reading · Wakefield · Stoneham · Medford · Lexington</p>
+      </div>
+
+      <aside class="sheet" aria-label="Sample nightly checklist">
+        <div class="sheet-head"><b>Nightly checklist</b><span>Suite 210 · sample</span></div>
+        <ul>
+          <li><i class="box on"></i>Empty trash and recycling, replace liners<span class="zone">All</span></li>
+          <li><i class="box on"></i>Disinfect door handles, light switches, shared desks<span class="zone">High-touch</span></li>
+          <li><i class="box on"></i>Clean and restock restrooms<span class="zone">Restrooms</span></li>
+          <li><i class="box on"></i>Wipe counters, sink and appliance fronts<span class="zone">Break room</span></li>
+          <li><i class="box on"></i>Vacuum carpets and walk-off mats<span class="zone">Floors</span></li>
+          <li><i class="box"></i>Damp-mop hard floors<span class="zone">Floors</span></li>
+          <li><i class="box"></i>Spot-clean entry glass<span class="zone">Lobby</span></li>
+        </ul>
+        <div class="sheet-foot"><span>Crew sign-off · 9:40 pm</span><span>Lock-up confirmed</span></div>
+      </aside>
+    </div>
+
+    <section id="services">
+      <h2>What a Gleamstone account looks like</h2>
+      <p class="sub">We build the scope around your space during a short walkthrough. Most accounts start with the basics below and add as needed.</p>
+      <div class="grid3">
+        <div><h3>Trained on your space</h3><p>Every cleaner gets your checklist and site notes before their first night, including which offices stay locked and where supplies go.</p></div>
+        <div><h3>A written checklist</h3><p>Every task, every zone, every frequency is in writing. You know exactly what you are paying for.</p></div>
+        <div><h3>One point of contact</h3><p>Email Bobby directly about anything. Missed spot, extra service, schedule change. Replies come the same business day.</p></div>
+        <div><h3>After-hours service</h3><p>We clean evenings or early mornings so your staff and patients never work around us.</p></div>
+        <div><h3>Regular quality checks</h3><p>The owner inspects accounts in person on a set schedule, not only when something goes wrong.</p></div>
+        <div><h3>Month-to-month</h3><p>No long contract to get started. We keep accounts by doing the work well.</p></div>
+      </div>
+      <div class="who">
+        <span>Professional offices</span><span>Medical &amp; dental suites</span><span>Property-managed buildings</span><span>Small warehouses &amp; showrooms</span><span>Co-working spaces</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Pick a schedule</h2>
+      <p class="sub">Pricing depends on square footage, restrooms and floor types. Your quote is a flat monthly rate.</p>
+      <div class="freq">
+        <table>
+          <thead><tr><th>Visits</th><th>Good fit for</th><th>Typical scope</th></tr></thead>
+          <tbody>
+            <tr><td>1× week</td><td>Small offices with light foot traffic</td><td>Trash, restrooms, kitchen, vacuum and mop</td></tr>
+            <tr><td>3× week<span class="tag">Most common</span></td><td>Offices of 10 to 40 people</td><td>Full checklist each visit, high-touch disinfecting</td></tr>
+            <tr><td>5× week</td><td>Medical and dental suites, busy lobbies</td><td>Nightly full service, waiting room and restroom focus</td></tr>
+            <tr><td>Add-ons</td><td>Any account</td><td>Interior windows, carpet extraction, floor strip and wax, move-out cleans</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Getting started</h2>
+      <ol class="steps">
+        <li><h3>Send a quick email</h3><p>Tell us your address, rough square footage and how often you want service.</p></li>
+        <li><h3>15-minute walkthrough</h3><p>Bobby walks the space with you or your property manager and notes every zone.</p></li>
+        <li><h3>Written quote and checklist</h3><p>You get a flat monthly price and the full checklist, usually within two business days.</p></li>
+      </ol>
+    </section>
+
+    <div class="contact" id="quote">
+      <div>
+        <h2>Get a free walkthrough quote</h2>
+        <p>Email Bobby with your building address, approximate square footage and the schedule you're thinking about. You'll hear back the same business day.</p>
+      </div>
+      <div class="addr">
+        <small>Email</small>
+        <code id="email">bobby@gleamstonecleaning.com</code>
+        <button class="btn" id="copy" type="button">Copy email address</button>
+        <span class="hint" id="hint">Or write from your own mail app.</span>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Gleamstone Commercial Cleaning</span>
+    <span>Serving Greater Boston's North Shore and Route 128 corridor</span>
+  </footer>
+</div>
+
+<script>
+document.getElementById('copy').addEventListener('click', function(){
+  var t=document.getElementById('email').textContent, h=document.getElementById('hint');
+  function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);h.textContent='Selected. Press Ctrl+C or ⌘C to copy.';}
+  try{navigator.clipboard.writeText(t).then(function(){h.textContent='Copied. Paste it into your email.';},sel);}catch(e){sel();}
+});
+</script>
+</body>
+</html>
